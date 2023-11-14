@@ -6,10 +6,11 @@ import { ImageView } from "../components/ImageView";
 import { Description } from "../components/SelectServiceDescription";
 import { Footer } from "../components/Footer";
 import globalStyles from "../styles/globalStyles";
+import { RootStackParamList } from "../navigation/ClientNavigation";
 
-interface Props extends StackScreenProps<any, any> {}
+interface Props extends StackScreenProps<RootStackParamList, "SelectService"> {}
 
-const SelectService = ({ navigation, route }: Props) => {
+const SelectService = ({ navigation }: Props) => {
   const services = [
     { id: 1, name: "Semi-Permanente", price: 2000 },
     { id: 2, name: "Esculpidas PolyGel", price: 6000 },
