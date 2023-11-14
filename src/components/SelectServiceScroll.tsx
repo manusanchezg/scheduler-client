@@ -5,7 +5,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 
 interface Props extends StackScreenProps<any, any> {}
 
-export const SelectService = ({ navigation }: Props) => {
+export const SelectServiceScroll = ({ navigation }: Props) => {
   const services = [
     { id: 1, name: "Semi-Permanente", price: 2000 },
     { id: 2, name: "Esculpidas PolyGel", price: 6000 },
@@ -24,7 +24,7 @@ export const SelectService = ({ navigation }: Props) => {
           <TouchableOpacity
             key={service.id}
             style={globalStyles.serviceItem}
-            onPress={() => navigation.navigate("SelectDate")}
+            onPress={() => navigation.navigate("SelectDate", { service })}
           >
             <Text style={globalStyles.titleServiceItem}>{service.name}</Text>
             <Text style={globalStyles.priceServiceItem}>${service.price}</Text>
