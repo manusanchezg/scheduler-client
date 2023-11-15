@@ -7,7 +7,7 @@ import { RootStackParamList } from "../navigation/ClientNavigation";
 type Props = StackScreenProps<RootStackParamList, "SelectDate">;
 
 const SelectDate = ({ route, navigation }: Props) => {
-  const { service } = route.params;
+  const { service, selectedClient } = route.params;
 
   const vacation = { key: "vacation", color: "red", selectedDotColor: "blue" };
   const massage = { key: "massage", color: "blue", selectedDotColor: "blue" };
@@ -55,8 +55,7 @@ const SelectDate = ({ route, navigation }: Props) => {
         // avoid that people can get an appointment before today
         minDate={currentDate.toISOString().split("T")[0]}
         onDayPress={(date) => {
-          navigation.navigate("SelectHour", {date});
-          console.log(date)
+          navigation.navigate("SelectHour", {date, selectedClient, service});
         }}
         markingType={"multi-dot"}
         // esto va a ser un kilombo
