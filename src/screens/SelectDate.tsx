@@ -1,37 +1,42 @@
 import { StackScreenProps } from "@react-navigation/stack";
-import React, { useState } from "react";
+import React from "react";
 import { Text, View } from "react-native";
-import { Calendar, DateData } from "react-native-calendars";
+import { Calendar } from "react-native-calendars";
 import { RootStackParamList } from "../navigation/ClientNavigation";
 
 type Props = StackScreenProps<RootStackParamList, "SelectDate">;
 
-const SelectDate = ({ route }: Props) => {
-  //? const [selectedDate, setSelectedDate] = useState<DateData | undefined>(
-  //?   undefined
-  //? );
+const SelectDate = ({ route, navigation }: Props) => {
+  const { service } = route.params;
 
   const vacation = { key: "vacation", color: "red", selectedDotColor: "blue" };
   const massage = { key: "massage", color: "blue", selectedDotColor: "blue" };
   const workout = { key: "workout", color: "green" };
 
-  const { service } = route.params;
 
   const currentDate = new Date();
 
-  // get dates until next year
-  const nextYearDate = new Date();
-  nextYearDate.setFullYear(currentDate.getFullYear() + 1);
-
-  // get all dates until next year
-  const dateRange: any = {};
-  let currentDateIterator = new Date(currentDate);
-
-  while (currentDateIterator <= nextYearDate) {
-    const dateKey = currentDateIterator.toISOString().split("T")[0];
-    dateRange[dateKey] = { marked: true };
-    currentDateIterator.setMonth(currentDateIterator.getMonth() + 1);
-  }
+  const markedDates = {
+    "2023-11-16": {
+      dots: [vacation, massage, workout],
+      marked: true,
+    },
+    "2023-11-20": { selected: true, marked: true },
+    "2023-11-21": {
+      dots: [vacation, massage],
+      marked: true,
+    },
+    "2023-11-27": { selected: true, marked: true },
+    "2023-11-25": {
+      dots: [vacation, workout],
+      marked: true,
+    },
+    "2023-11-30": { selected: true, marked: true },
+    "2023-11-17": { marked: true },
+    "2023-11-18": { marked: true, dotColor: "red", activeOpacity: 0 },
+    "2023-11-19": { disabled: true, disableTouchEvent: true },
+    "2023-11-28": { disabled: true, disableTouchEvent: true },
+  };
 
   return (
     <View>
@@ -49,23 +54,13 @@ const SelectDate = ({ route }: Props) => {
       <Calendar
         // avoid that people can get an appointment before today
         minDate={currentDate.toISOString().split("T")[0]}
-        onDayPress={(day) => {
-          console.log("selected day", day);
+        onDayPress={(date) => {
+          navigation.navigate("SelectHour", {date});
+          console.log(date)
         }}
-        markingType={'multi-dot'}
+        markingType={"multi-dot"}
         // esto va a ser un kilombo
-        markedDates={{
-          "2023-11-16": {dots: [vacation, massage, workout], selected: true, marked: true },
-          "2023-11-20": { selected: true, marked: true },
-          "2023-11-21": {dots: [vacation, massage], selected: true, marked: true },
-          "2023-11-27": { selected: true, marked: true },
-          "2023-11-25": {dots: [vacation, workout], selected: true, marked: true },
-          "2023-11-30": { selected: true, marked: true },
-          "2023-11-17": { marked: true },
-          "2023-11-18": { marked: true, dotColor: "red", activeOpacity: 0 },
-          "2023-11-19": { disabled: true, disableTouchEvent: true },
-          "2023-11-28": { disabled: true, disableTouchEvent: true },
-        }}
+        markedDates={markedDates}
         theme={{
           agendaDayNumColor: "#141115",
           agendaKnobColor: "#4C2B36",
@@ -80,6 +75,8 @@ const SelectDate = ({ route }: Props) => {
           textInactiveColor: "#BCB0BF",
           selectedDayTextColor: "#4C2B36",
           selectedDayBackgroundColor: "#C6B38E",
+          textDayFontSize: 18,
+          weekVerticalMargin: 15,
         }}
       />
     </View>

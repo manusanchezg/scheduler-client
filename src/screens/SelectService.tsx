@@ -33,7 +33,7 @@ const SelectService = ({ navigation }: Props) => {
             <TouchableOpacity
               key={service.id}
               style={globalStyles.serviceItem}
-              onPress={() => navigation.navigate("SelectDate", { service })}
+              onPress={() => navigation.navigate("SelectClient", { service })}
             >
               <Text style={globalStyles.titleServiceItem}>{service.name}</Text>
               <Text style={globalStyles.priceServiceItem}>
