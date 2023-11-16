@@ -117,6 +117,16 @@ const globalStyles = StyleSheet.create({
     color: "black",
     fontWeight: "bold",
   },
+  itemSelect: {
+    paddingVertical: 40,
+    paddingHorizontal: 10,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    backgroundColor: "#EAE8FF"
+  }
 });
 
 export default globalStyles;

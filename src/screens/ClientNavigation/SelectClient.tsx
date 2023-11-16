@@ -8,6 +8,7 @@ import {
   FlatList,
 } from "react-native";
 import { RootStackParamList } from "../../navigation/ClientNavigation";
+import globalStyles from "../../styles/globalStyles";
 
 interface Client {
   id: number;
@@ -35,7 +36,7 @@ const SelectClient = ({ navigation, route }: Props) => {
 
   const renderClientItem = ({ item }: { item: Client }) => (
     <TouchableOpacity
-      style={styles.item}
+      style={globalStyles.itemSelect}
       onPress={() =>
         navigation.navigate("SelectDate", { service, selectedClient: "hola" })
       }
@@ -75,15 +76,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-  },
-  item: {
-    paddingVertical: 40,
-    paddingHorizontal: 10,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    backgroundColor: "#EAE8FF"
   },
 });
