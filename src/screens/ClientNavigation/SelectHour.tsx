@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { RootStackParamList } from "../navigation/ClientNavigation";
-import globalStyles from "../styles/globalStyles";
+import { RootStackParamList } from "../../navigation/ClientNavigation";
+import globalStyles from "../../styles/globalStyles";
 
 type Props = StackScreenProps<RootStackParamList, "SelectHour">;
 

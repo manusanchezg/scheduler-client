@@ -7,8 +7,8 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import globalStyles from "../styles/globalStyles";
-import { RootStackParamList } from "../navigation/ClientNavigation";
+import globalStyles from "../../styles/globalStyles";
+import { RootStackParamList } from "../../navigation/ClientNavigation";
 import { StackScreenProps } from "@react-navigation/stack";
 
 type Props = StackScreenProps<RootStackParamList, "SendInfoForm">;

@@ -2,11 +2,11 @@ import React from "react";
 import { StackScreenProps } from "@react-navigation/stack";
 import { Text, ScrollView, TouchableOpacity, View } from "react-native";
 
-import { ImageView } from "../components/ImageView";
-import { Description } from "../components/SelectServiceDescription";
-import { Footer } from "../components/Footer";
-import globalStyles from "../styles/globalStyles";
-import { RootStackParamList } from "../navigation/ClientNavigation";
+import { ImageView } from "../../components/ImageView";
+import { Description } from "../../components/SelectServiceDescription";
+import { Footer } from "../../components/Footer";
+import globalStyles from "../../styles/globalStyles";
+import { RootStackParamList } from "../../navigation/ClientNavigation";
 
 interface Props extends StackScreenProps<RootStackParamList, "SelectService"> {}
 

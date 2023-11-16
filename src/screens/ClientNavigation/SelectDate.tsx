@@ -2,7 +2,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
 import { Text, View } from "react-native";
 import { Calendar } from "react-native-calendars";
-import { RootStackParamList } from "../navigation/ClientNavigation";
+import { RootStackParamList } from "../../navigation/ClientNavigation";
 
 type Props = StackScreenProps<RootStackParamList, "SelectDate">;
 

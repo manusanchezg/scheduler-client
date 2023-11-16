@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-import { RootStackParamList } from "../navigation/ClientNavigation";
+import { RootStackParamList } from "../../navigation/ClientNavigation";
 
 interface Client {
   id: number;

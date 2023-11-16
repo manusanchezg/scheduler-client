@@ -1,10 +1,10 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import SelectService from "../screens/SelectService";
-import SelectDate from "../screens/SelectDate";
-import SelectHour from "../screens/SelectHour";
-import SelectClient from "../screens/SelectClient";
-import SendInfoForm from "../screens/SendInfoForm";
+import SelectService from "../screens/ClientNavigation/SelectService";
+import SelectDate from "../screens/ClientNavigation/SelectDate";
+import SelectHour from "../screens/ClientNavigation/SelectHour";
+import SelectClient from "../screens/ClientNavigation/SelectClient";
+import SendInfoForm from "../screens/ClientNavigation/SendInfoForm";
 
 export type RootStackParamList = {
   SelectDate: {
