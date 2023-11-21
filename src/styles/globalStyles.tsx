@@ -125,7 +125,7 @@ const globalStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 8,
-    backgroundColor: "#EAE8FF"
+    backgroundColor: "#CFBFA0"
   }
 });
 

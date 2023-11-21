@@ -1,12 +1,12 @@
 import React from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 
-const ViewDetailService = () => {
+const ViewDetailAppointment = () => {
   return (
     <View>
-      <Text>ViewDetailService</Text>
+      <Text>ViewDetailAppointment</Text>
     </View>
   );
 };
 
-export default ViewDetailService
+export default ViewDetailAppointment
