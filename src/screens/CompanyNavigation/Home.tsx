@@ -16,36 +16,50 @@ const Home = () => {
       id: 1,
       clientName: "Mariana",
       date: "24-11-2023",
+      service: "Service 1",
+      status: "pending",
     },
     {
       id: 2,
       clientName: "Milagros",
       date: "12-12-2023",
+      service: "Service 2",
+      status: "approved",
     },
     {
       id: 3,
       clientName: "Julieta",
       date: "20-12-2023",
+      service: "Service 3",
+      status: "canceled",
     },
     {
       id: 4,
       clientName: "Camila",
       date: "21-12-2023",
+      service: "Service 4",
+      status: "approved",
     },
     {
       id: 5,
       clientName: "Manuel",
       date: "22-12-2023",
+      service: "Service 5",
+      status: "pending",
     },
     {
       id: 6,
       clientName: "Aramis",
       date: "23-12-2023",
+      service: "Service 6",
+      status: "canceled",
     },
     {
       id: 7,
       clientName: "Sol",
       date: "24-05-2024",
+      service: "Service 7",
+      status: "pending",
     },
   ];
   return (
@@ -92,7 +106,7 @@ const Home = () => {
             ...globalStyles.button,
             borderWidth: 1,
             borderColor: "#BCB0BF",
-            backgroundColor: "#C4E4F8"
+            backgroundColor: "#C4E4F8",
           }}
         >
           <Text
