@@ -7,7 +7,7 @@ import Appointments from '../screens/CompanyNavigation/Appointments';
 
 const Drawer = createDrawerNavigator();
 
-function CompanyNavigation() {
+function CompanyNavigationDrawer() {
   return (
     <Drawer.Navigator>
       <Drawer.Screen name="Home" component={Home} />
@@ -19,4 +19,4 @@ function CompanyNavigation() {
   );
 }
 
-export default CompanyNavigation
+export default CompanyNavigationDrawer
