@@ -1,12 +1,30 @@
-import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import React from "react";
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 
 const EditService = () => {
+  const services: any = [];
   return (
     <View>
-      <Text>This is EditService</Text>
+      <Text>Gestionar Servicios</Text>
+      <FlatList
+        data={services}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <TouchableOpacity onPress={() => {}}>
+            <Text>
+              {item.serviceName} - ${item.price}
+            </Text>
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 };
 
-export default EditService
+export default EditService;

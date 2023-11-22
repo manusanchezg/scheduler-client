@@ -5,11 +5,13 @@ import ViewDetailAppointment from "../screens/CompanyNavigation/ViewDetailAppoin
 import { Appointment } from "../interfaces/appointmentInterface";
 import ManageAppointmentStatus from "../screens/CompanyNavigation/ManageAppointmentStatus";
 import { ServiceStatus } from "../enums/serviceStatus";
+import AddService from "../screens/CompanyNavigation/AddService";
 
 export type RootStackParamList = {
   HomeScreen: undefined;
   ViewDetailAppointment: { item: Appointment };
   ManageAppointmentStatus: {status: ServiceStatus};
+  AddService: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -32,6 +34,7 @@ const CompanyAppointmentStack = () => {
         component={ViewDetailAppointment}
       />
     <Stack.Screen name="ManageAppointmentStatus" component={ManageAppointmentStatus} />
+    <Stack.Screen name="AddService" component={AddService} />
     </Stack.Navigator>
   );
 };

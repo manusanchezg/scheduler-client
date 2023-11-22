@@ -4,8 +4,13 @@ import globalStyles from "../../styles/globalStyles";
 import { AppointmentCard } from "../../components/AppointmentCard";
 import { Appointment } from "../../interfaces/appointmentInterface";
 import { ServiceStatus } from "../../enums/serviceStatus";
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "../../navigation/CompanyAppointmentStack";
 
-const Home = () => {
+interface Props
+  extends StackScreenProps<RootStackParamList, "HomeScreen"> {}
+
+const Home = ({navigation}: Props) => {
   const upcomingAppointments: Appointment[] = [
     // pending, approved, canceled, postponed
     {
@@ -92,6 +97,7 @@ const Home = () => {
               color: "#6B8E23",
               fontWeight: "bold",
             }}
+            onPress={() => navigation.navigate("AddService")}
           >
             Add Service
           </Text>
