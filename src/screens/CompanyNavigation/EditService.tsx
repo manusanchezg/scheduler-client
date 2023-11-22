@@ -1,28 +1,20 @@
 import React from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
+import { Text, View } from "react-native";
+import Form from "../../components/Form";
+import { Service } from "../../types/Service";
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "../../navigation/EditServiceStack";
 
-const EditService = () => {
-  const services: any = [];
+interface Props
+  extends StackScreenProps<RootStackParamList, "EditServiceDetails"> {}
+
+const EditService = ({ route }: Props) => {
+  const { service } = route.params;
+
   return (
     <View>
       <Text>Gestionar Servicios</Text>
-      <FlatList
-        data={services}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => {}}>
-            <Text>
-              {item.serviceName} - ${item.price}
-            </Text>
-          </TouchableOpacity>
-        )}
-      />
+      <Form buttonName="Edit" handleService={() => {}} item={service} />
     </View>
   );
 };

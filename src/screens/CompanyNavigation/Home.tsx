@@ -118,6 +118,7 @@ const Home = ({navigation}: Props) => {
               color: "#6E8B9E",
               fontWeight: "bold",
             }}
+            onPress={() => navigation.navigate("ChooseEditService")}
           >
             Edit Service
           </Text>

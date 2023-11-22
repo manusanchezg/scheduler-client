@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const AppointmentCard = ({ item }: Props) => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>(); //TODO <StackNavigationProp<RootStackParamList>>
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   return (
     <TouchableOpacity

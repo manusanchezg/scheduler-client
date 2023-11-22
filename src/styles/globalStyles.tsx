@@ -6,7 +6,8 @@ export const colors = {
   canceled: "#D3D3D3",
   postponed: "#ADD8E6",
   default: "#CFBFA0",
-  completed: "#EAE8FF"
+  completed: "#EAE8FF",
+  text: "#141115"
 };
 
 const globalStyles = StyleSheet.create({
