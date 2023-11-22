@@ -1,65 +1,61 @@
 import React from "react";
-import {
-  FlatList,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import globalStyles from "../../styles/globalStyles";
 import { AppointmentCard } from "../../components/AppointmentCard";
 import { Appointment } from "../../interfaces/appointmentInterface";
+import { ServiceStatus } from "../../enums/serviceStatus";
 
 const Home = () => {
   const upcomingAppointments: Appointment[] = [
+    // pending, approved, canceled, postponed
     {
       id: 1,
       clientName: "Mariana",
       date: "24-11-2023",
       service: "Service 1",
-      status: "pending",
+      status: ServiceStatus.Pending,
     },
     {
       id: 2,
       clientName: "Milagros",
       date: "12-12-2023",
       service: "Service 2",
-      status: "approved",
+      status: ServiceStatus.Approved,
     },
     {
       id: 3,
       clientName: "Julieta",
       date: "20-12-2023",
       service: "Service 3",
-      status: "canceled",
+      status: ServiceStatus.Canceled,
     },
     {
       id: 4,
       clientName: "Camila",
       date: "21-12-2023",
       service: "Service 4",
-      status: "approved",
+      status: ServiceStatus.Approved,
     },
     {
       id: 5,
       clientName: "Manuel",
       date: "22-12-2023",
       service: "Service 5",
-      status: "pending",
+      status: ServiceStatus.Postponed,
     },
     {
       id: 6,
       clientName: "Aramis",
       date: "23-12-2023",
       service: "Service 6",
-      status: "canceled",
+      status: ServiceStatus.Canceled,
     },
     {
       id: 7,
       clientName: "Sol",
       date: "24-05-2024",
       service: "Service 7",
-      status: "pending",
+      status: ServiceStatus.Canceled,
     },
   ];
   return (

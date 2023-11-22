@@ -6,6 +6,7 @@ import { Appointment } from "../interfaces/appointmentInterface";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../navigation/CompanyAppointmentStack";
+import { statusColor } from "../helpers/statusColor";
 
 interface Props {
   item: Appointment;
@@ -16,8 +17,11 @@ export const AppointmentCard = ({ item }: Props) => {
 
   return (
     <TouchableOpacity
-      style={globalStyles.itemSelect}
-      onPress={() => navigation.navigate("ViewDetailAppointment", {item})}
+      style={{
+        ...globalStyles.itemSelect,
+        backgroundColor: statusColor(item.status),
+      }}
+      onPress={() => navigation.navigate("ViewDetailAppointment", { item })}
     >
       <Text style={globalStyles.descriptionText}>
         {item.clientName} {item.date}

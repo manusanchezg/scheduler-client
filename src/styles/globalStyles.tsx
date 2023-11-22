@@ -1,5 +1,14 @@
 import { StyleSheet } from "react-native";
 
+export const colors = {
+  approved: "#C1EDC5",
+  pending: "#FFE4B5",
+  canceled: "#D3D3D3",
+  postponed: "#ADD8E6",
+  default: "#CFBFA0",
+  completed: "#EAE8FF"
+};
+
 const globalStyles = StyleSheet.create({
   title: {
     fontSize: 30,
@@ -125,8 +134,23 @@ const globalStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 8,
-    backgroundColor: "#CFBFA0"
-  }
+    backgroundColor: "#CFBFA0",
+  },
+  globalPadding: {
+    flex: 1,
+    padding: 16,
+  },
+  statusButton: {
+    width: "70%",
+    borderRadius: 10,
+    borderColor: "#141115",
+    margin: 20,
+    alignItems: "center",
+    flexDirection: "row",
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+    gap: 15,
+  },
 });
 
 export default globalStyles;
