@@ -10,7 +10,7 @@ import ChooseServiceToEdit from "../screens/CompanyNavigation/ChooseServiceToEdi
 import { Service } from "../types/Service";
 import EditService from "../screens/CompanyNavigation/EditService";
 
-export type RootStackParamList = {
+export type CompanyAppointmentStackParamList = {
   HomeScreen: undefined;
   ViewDetailAppointment: { item: Appointment };
   ManageAppointmentStatus: { status: ServiceStatus };
@@ -19,7 +19,7 @@ export type RootStackParamList = {
   EditServiceDetails: { service: Service };
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<CompanyAppointmentStackParamList>();
 
 const CompanyAppointmentStack = () => {
   return (

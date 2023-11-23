@@ -4,12 +4,12 @@ import ChooseServiceToEdit from "../screens/CompanyNavigation/ChooseServiceToEdi
 import EditService from "../screens/CompanyNavigation/EditService";
 import { Service } from "../types/Service";
 
-export type RootStackParamList = {
+export type EditServiceStackParamList = {
   ChooseEditService: undefined;
   EditServiceDetails: {service: Service};
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<EditServiceStackParamList>();
 
 const EditServiceStack = () => {
   return (

@@ -5,10 +5,10 @@ import { AppointmentCard } from "../../components/AppointmentCard";
 import { Appointment } from "../../interfaces/appointmentInterface";
 import { ServiceStatus } from "../../enums/serviceStatus";
 import { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/CompanyAppointmentStack";
+import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
 
 interface Props
-  extends StackScreenProps<RootStackParamList, "HomeScreen"> {}
+  extends StackScreenProps<CompanyAppointmentStackParamList, "HomeScreen"> {}
 
 const Home = ({navigation}: Props) => {
   const upcomingAppointments: Appointment[] = [

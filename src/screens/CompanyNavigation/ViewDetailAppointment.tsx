@@ -3,12 +3,12 @@ import React from "react";
 import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Ionicons";
-import { RootStackParamList } from "../../navigation/CompanyAppointmentStack";
+import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
 import globalStyles from "../../styles/globalStyles";
 import { statusColor } from "../../helpers/statusColor";
 
 interface Props
-  extends StackScreenProps<RootStackParamList, "ViewDetailAppointment"> {}
+  extends StackScreenProps<CompanyAppointmentStackParamList, "ViewDetailAppointment"> {}
 
 const ViewDetailAppointment = ({ navigation, route }: Props) => {
   const { item } = route.params;

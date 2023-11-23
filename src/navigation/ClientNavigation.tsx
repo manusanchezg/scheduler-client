@@ -6,7 +6,7 @@ import SelectHour from "../screens/ClientNavigation/SelectHour";
 import SelectClient from "../screens/ClientNavigation/SelectClient";
 import SendInfoForm from "../screens/ClientNavigation/SendInfoForm";
 
-export type RootStackParamList = {
+export type ClientNavigationStackParamList = {
   SelectDate: {
     service: { id: number; name: string; price: number };
     selectedClient: string;
@@ -38,7 +38,7 @@ export type RootStackParamList = {
   };
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<ClientNavigationStackParamList>();
 
 const ClientNavigator = () => {
   return (

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-import { RootStackParamList } from "../../navigation/ClientNavigation";
+import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
 import globalStyles from "../../styles/globalStyles";
 
 interface Client {
@@ -29,7 +29,7 @@ const clients: Client[] = [
   // Agrega más clientes según sea necesario
 ];
 
-type Props = StackScreenProps<RootStackParamList, "SelectClient">;
+type Props = StackScreenProps<ClientNavigationStackParamList, "SelectClient">;
 
 const SelectClient = ({ navigation, route }: Props) => {
   const { service } = route.params;

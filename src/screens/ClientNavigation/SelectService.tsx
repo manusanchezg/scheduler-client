@@ -6,9 +6,9 @@ import { ImageView } from "../../components/ImageView";
 import { Description } from "../../components/SelectServiceDescription";
 import { Footer } from "../../components/Footer";
 import globalStyles from "../../styles/globalStyles";
-import { RootStackParamList } from "../../navigation/ClientNavigation";
+import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
 
-interface Props extends StackScreenProps<RootStackParamList, "SelectService"> {}
+interface Props extends StackScreenProps<ClientNavigationStackParamList, "SelectService"> {}
 
 const SelectService = ({ navigation }: Props) => {
   const services = [

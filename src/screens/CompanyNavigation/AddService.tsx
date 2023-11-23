@@ -4,10 +4,10 @@ import { View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/CompanyAppointmentStack";
+import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
 
 const AddService = () => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<StackNavigationProp<CompanyAppointmentStackParamList>>();
   const [newService, setNewService] = useState({
     id: 1,
     serviceName: "",

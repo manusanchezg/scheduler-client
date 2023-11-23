@@ -8,10 +8,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import globalStyles from "../../styles/globalStyles";
-import { RootStackParamList } from "../../navigation/ClientNavigation";
+import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
 import { StackScreenProps } from "@react-navigation/stack";
 
-type Props = StackScreenProps<RootStackParamList, "SendInfoForm">;
+type Props = StackScreenProps<ClientNavigationStackParamList, "SendInfoForm">;
 
 const SendInfoForm = ({ route, navigation }: Props) => {
   const { date, hour, selectedClient, service } = route.params;

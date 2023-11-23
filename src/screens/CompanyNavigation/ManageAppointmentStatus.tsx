@@ -2,12 +2,12 @@ import React from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Text, View, TouchableOpacity } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/CompanyAppointmentStack";
+import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
 import globalStyles, { colors } from "../../styles/globalStyles";
 import { ServiceStatus } from "../../enums/serviceStatus";
 
 interface Props
-  extends StackScreenProps<RootStackParamList, "ManageAppointmentStatus"> {}
+  extends StackScreenProps<CompanyAppointmentStackParamList, "ManageAppointmentStatus"> {}
 
 const ManageAppointmentStatus = ({ navigation, route }: Props) => {
   const { status } = route.params;

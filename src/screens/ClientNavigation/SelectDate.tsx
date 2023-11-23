@@ -2,9 +2,9 @@ import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
 import { Text, View } from "react-native";
 import { Calendar } from "react-native-calendars";
-import { RootStackParamList } from "../../navigation/ClientNavigation";
+import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
 
-type Props = StackScreenProps<RootStackParamList, "SelectDate">;
+type Props = StackScreenProps<ClientNavigationStackParamList, "SelectDate">;
 
 const SelectDate = ({ route, navigation }: Props) => {
   const { service, selectedClient } = route.params;
