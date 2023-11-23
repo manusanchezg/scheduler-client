@@ -89,6 +89,7 @@ const Home = ({navigation}: Props) => {
             borderColor: "#BCB0BF",
             backgroundColor: "#C1EDC5",
           }}
+          onPress={() => navigation.navigate("AddService")}
         >
           <Text
             style={{
@@ -97,7 +98,6 @@ const Home = ({navigation}: Props) => {
               color: "#6B8E23",
               fontWeight: "bold",
             }}
-            onPress={() => navigation.navigate("AddService")}
           >
             Add Service
           </Text>
@@ -110,6 +110,7 @@ const Home = ({navigation}: Props) => {
             borderColor: "#BCB0BF",
             backgroundColor: "#C4E4F8",
           }}
+          onPress={() => navigation.navigate("ChooseEditService")}
         >
           <Text
             style={{
@@ -118,7 +119,6 @@ const Home = ({navigation}: Props) => {
               color: "#6E8B9E",
               fontWeight: "bold",
             }}
-            onPress={() => navigation.navigate("ChooseEditService")}
           >
             Edit Service
           </Text>

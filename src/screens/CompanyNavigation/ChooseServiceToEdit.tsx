@@ -1,11 +1,12 @@
 import React from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { Service } from "../../types/Service";
-import globalStyles from "../../styles/globalStyles";
+import globalStyles, { colors } from "../../styles/globalStyles";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../../navigation/CompanyAppointmentStack";
 import Icon from "react-native-vector-icons/Ionicons";
 import { ServiceDetailCard } from "../../components/ServiceDetailCard";
+import { decimalToHoursMinutes } from "../../helpers/changeDecimalToHour";
 
 interface Props
   extends StackScreenProps<RootStackParamList, "ChooseEditService"> {}

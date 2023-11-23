@@ -7,13 +7,16 @@ import ManageAppointmentStatus from "../screens/CompanyNavigation/ManageAppointm
 import { ServiceStatus } from "../enums/serviceStatus";
 import AddService from "../screens/CompanyNavigation/AddService";
 import ChooseServiceToEdit from "../screens/CompanyNavigation/ChooseServiceToEdit";
+import { Service } from "../types/Service";
+import EditService from "../screens/CompanyNavigation/EditService";
 
 export type RootStackParamList = {
   HomeScreen: undefined;
   ViewDetailAppointment: { item: Appointment };
-  ManageAppointmentStatus: {status: ServiceStatus};
+  ManageAppointmentStatus: { status: ServiceStatus };
   AddService: undefined;
   ChooseEditService: undefined;
+  EditServiceDetails: { service: Service };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -35,9 +38,13 @@ const CompanyAppointmentStack = () => {
         name="ViewDetailAppointment"
         component={ViewDetailAppointment}
       />
-    <Stack.Screen name="ManageAppointmentStatus" component={ManageAppointmentStatus} />
-    <Stack.Screen name="AddService" component={AddService} />
-    <Stack.Screen name="ChooseEditService" component={ChooseServiceToEdit} />
+      <Stack.Screen
+        name="ManageAppointmentStatus"
+        component={ManageAppointmentStatus}
+      />
+      <Stack.Screen name="AddService" component={AddService} />
+      <Stack.Screen name="ChooseEditService" component={ChooseServiceToEdit} />
+      <Stack.Screen name="EditServiceDetails" component={EditService} />
     </Stack.Navigator>
   );
 };

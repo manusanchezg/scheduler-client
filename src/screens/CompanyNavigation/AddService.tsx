@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import Form from "../../components/Form";
+import { View, TouchableOpacity } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../navigation/CompanyAppointmentStack";
 
 const AddService = () => {
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const [newService, setNewService] = useState({
     id: 1,
     serviceName: "",
@@ -16,11 +22,18 @@ const AddService = () => {
   };
 
   return (
-    <Form
-      buttonName="Add Service"
-      handleService={handleAddService}
-      item={newService}
-    />
+    <>
+      <View style={{ margin: 15 }}>
+        <TouchableOpacity onPress={() => navigation.popToTop()}>
+          <Icon name="arrow-back-outline" size={40} />
+        </TouchableOpacity>
+      </View>
+      <Form
+        buttonName="Add Service"
+        handleService={handleAddService}
+        item={newService}
+      />
+    </>
   );
 };
 
