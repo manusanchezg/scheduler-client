@@ -1,13 +1,17 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-// import ClientNavigator from "./src/navigation/ClientNavigation";
-import CompanyNavigationDrawer from './src/navigation/CompanyNavigationDrawer';
+import ClientNavigator from "./src/navigation/ClientNavigation";
+import CompanyNavigationDrawer from "./src/navigation/CompanyNavigationDrawer";
+import { useState } from "react";
 
 export default function App() {
+  // for now like this to try
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
   return (
-    <NavigationContainer >
-      {/* <ClientNavigator /> */}
-      <CompanyNavigationDrawer />
+    <NavigationContainer>
+      {isLoggedIn ? <CompanyNavigationDrawer /> : <ClientNavigator />}
     </NavigationContainer>
   );
 }

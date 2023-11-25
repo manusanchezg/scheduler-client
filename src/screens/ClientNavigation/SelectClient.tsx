@@ -8,7 +8,7 @@ import {
   FlatList,
 } from "react-native";
 import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
-import globalStyles from "../../styles/globalStyles";
+import globalStyles, { colors } from "../../styles/globalStyles";
 
 interface Client {
   id: number;
@@ -33,20 +33,25 @@ type Props = StackScreenProps<ClientNavigationStackParamList, "SelectClient">;
 
 const SelectClient = ({ navigation, route }: Props) => {
   const { service } = route.params;
+  const [selectedClient, setSelectedClient] = useState<string>("");
 
   const renderClientItem = ({ item }: { item: Client }) => (
     <TouchableOpacity
       style={globalStyles.itemSelect}
-      onPress={() =>
-        navigation.navigate("SelectDate", { service, selectedClient: "hola" })
-      }
+      onPress={() => {
+        setSelectedClient(item.name);
+        navigation.navigate("SelectDate", { service, selectedClient });
+      }}
     >
-      <Text style={{
-        fontSize: 25,
-        fontWeight: "bold",
-        color: "#4C2B36",
-
-      }}>{item.name}</Text>
+      <Text
+        style={{
+          fontSize: 25,
+          fontWeight: "bold",
+          color: colors.text,
+        }}
+      >
+        {item.name}
+      </Text>
     </TouchableOpacity>
   );
   return (
@@ -54,9 +59,9 @@ const SelectClient = ({ navigation, route }: Props) => {
       <Text
         style={{
           paddingHorizontal: 16,
-          fontSize: 20,
+          fontSize: 24,
           marginVertical: 20,
-          color: "#141115",
+          color: colors.text,
           fontWeight: "500",
         }}
       >

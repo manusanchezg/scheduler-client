@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import {
   Text,
   View,
-  ScrollView,
   TouchableOpacity,
   Image,
   Modal,
   ImageSourcePropType,
   GestureResponderEvent,
+  Dimensions,
 } from "react-native";
 import globalStyles from "../styles/globalStyles";
+import Carousel from "react-native-snap-carousel";
+
+const { width: windowWidth } = Dimensions.get("window");
 
 export const ImageView = () => {
   const [selectedImage, setSelectedImage] =
@@ -18,37 +21,57 @@ export const ImageView = () => {
     setSelectedImage(image);
   };
 
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
   const closeModal = (event: GestureResponderEvent) => {
     // I want to make that if you touch outside the image it closes
     setSelectedImage(null);
   };
 
   const businessImages = [
-    require("../assets/nails-1.jpg"),
-    require("../assets/nails-2.jpg"),
-    require("../assets/nails-3.jpeg"),
-    require("../assets/nails-4.jpeg"),
-    require("../assets/nails-5.jpeg"),
-    require("../assets/nails-6.jpeg"),
-    require("../assets/nails-7.jpeg"),
-    require("../assets/nails-8.jpeg"),
-    require("../assets/nails-9.jpeg"),
-    require("../assets/nails-10.jpeg"),
+    require("../assets/images/nails-1.jpg"),
+    require("../assets/images/nails-2.jpg"),
+    require("../assets/images/nails-3.jpeg"),
+    require("../assets/images/nails-4.jpeg"),
+    require("../assets/images/nails-5.jpeg"),
+    require("../assets/images/nails-6.jpeg"),
+    require("../assets/images/nails-7.jpeg"),
+    require("../assets/images/nails-8.jpeg"),
+    require("../assets/images/nails-9.jpeg"),
+    require("../assets/images/nails-10.jpeg"),
   ];
 
   return (
     <View>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={globalStyles.imageScrollContainer}
-      >
-        {businessImages.map((image, index) => (
-          <TouchableOpacity key={index} onPress={() => handleImagePress(image)}>
-            <Image source={image} style={globalStyles.businessImage} />
+      <Carousel
+        data={businessImages}
+        renderItem={({ item }: any) => (
+          <TouchableOpacity
+            style={{...globalStyles.shadow, paddingVertical: 5}}
+            key={item}
+            onPress={() => handleImagePress(item)}
+          >
+            <Image source={item} style={globalStyles.businessImage} />
           </TouchableOpacity>
+        )}
+        sliderWidth={windowWidth}
+        itemWidth={300}
+        inactiveSlideOpacity={0.9}
+        onSnapToItem={(slideIndex) => setActiveIndex(slideIndex)}
+      />
+      <View style={globalStyles.paginationContainer}>
+        {businessImages.map((_, index) => (
+          <Text
+            key={index}
+            style={[
+              globalStyles.paginationDot,
+              index === activeIndex && globalStyles.activeDot,
+            ]}
+          >
+            .
+          </Text>
         ))}
-      </ScrollView>
+      </View>
 
       <Modal
         visible={!!selectedImage}

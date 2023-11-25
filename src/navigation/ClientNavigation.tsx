@@ -5,6 +5,7 @@ import SelectDate from "../screens/ClientNavigation/SelectDate";
 import SelectHour from "../screens/ClientNavigation/SelectHour";
 import SelectClient from "../screens/ClientNavigation/SelectClient";
 import SendInfoForm from "../screens/ClientNavigation/SendInfoForm";
+import { colors } from "../styles/globalStyles";
 
 export type ClientNavigationStackParamList = {
   SelectDate: {
@@ -46,9 +47,14 @@ const ClientNavigator = () => {
       screenOptions={{
         headerShadowVisible: false,
         headerLargeTitleShadowVisible: false,
+        headerStyle:{
+          backgroundColor: colors.background,
+          
+        },
+        headerTitle: "Hola mundo",
         contentStyle: {
-          backgroundColor: "white",
-          margin: 15,
+          backgroundColor: colors.background,
+          padding: 15,
         },
       }}
     >

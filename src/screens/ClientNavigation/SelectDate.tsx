@@ -3,6 +3,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import { Calendar } from "react-native-calendars";
 import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
+import { colors } from "../../styles/globalStyles";
 
 type Props = StackScreenProps<ClientNavigationStackParamList, "SelectDate">;
 
@@ -43,9 +44,9 @@ const SelectDate = ({ route, navigation }: Props) => {
       <Text
         style={{
           textAlign: "center",
-          fontSize: 20,
+          fontSize: 24,
           marginVertical: 20,
-          color: "#141115",
+          color: colors.text,
           fontWeight: "500",
         }}
       >

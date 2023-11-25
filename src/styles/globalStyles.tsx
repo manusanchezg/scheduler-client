@@ -1,13 +1,16 @@
 import { StyleSheet } from "react-native";
 
 export const colors = {
-  approved: "#C1EDC5",
-  pending: "#FFE4B5",
-  canceled: "#D3D3D3",
+  approved: "#34BB8B",
+  pending: "#34BB8B",
+  canceled: "#34BB8B",
   postponed: "#ADD8E6",
   default: "#CFBFA0",
   completed: "#EAE8FF",
-  text: "#141115"
+  text: "#F2EFE6",
+  background: "#131C0E",
+  pink: "#FC83D2",
+  backgroundSec: "#42493E"
 };
 
 const globalStyles = StyleSheet.create({
@@ -16,6 +19,7 @@ const globalStyles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginVertical: 15,
+    color: colors.text
   },
   button: {
     backgroundColor: "#EAE8FF",
@@ -36,60 +40,63 @@ const globalStyles = StyleSheet.create({
   scrollContainer: {
     maxHeight: 500,
     overflow: "hidden",
+    borderRadius: 40,
   },
   serviceItem: {
     height: 120,
-    padding: 15,
+    padding: 25,
     margin: 10,
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: "#E1E5F2",
-    backgroundColor: "#F5F5F5",
+    backgroundColor: colors.text,
+    borderRadius: 30,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     gap: 10,
   },
   mainContainer: {
-    borderColor: "#E1E5F2",
-    borderRadius: 5,
-    borderWidth: 0.5,
-    shadowColor: "#000",
+    backgroundColor: colors.backgroundSec,
+    borderRadius: 40,
+    shadowColor: "#FFF",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
+    marginTop: 10,
+    overflow: "hidden",
+    padding: 10,
+    marginBottom: 60
   },
   titleServiceItem: {
     fontSize: 25,
     fontWeight: "bold",
+    color: colors.background,
   },
   priceServiceItem: {
     fontSize: 20,
     paddingLeft: 10,
+    color: colors.background
   },
   descriptionContainer: {
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    padding: 15,
+    backgroundColor: colors.backgroundSec,
+    borderRadius: 30,
+    padding: 30,
     marginVertical: 10,
-    shadowColor: "#000",
+    shadowColor: "#FFF",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
     elevation: 3,
   },
   descriptionText: {
-    fontSize: 16,
-    textAlign: "center",
+    fontSize: 18,
     fontWeight: "500",
+    color: colors.text,
   },
   imageScrollContainer: {
     flexDirection: "row",
   },
   businessImage: {
-    width: 200,
-    height: 300,
-    marginRight: 10,
+    width: 250,
+    height: 350,
     borderRadius: 5,
   },
   footerContainer: {
@@ -98,7 +105,9 @@ const globalStyles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5F5F5",
+    backgroundColor: colors.backgroundSec,
+    padding: 20,
+    borderRadius: 30
   },
 
   modalContainer: {
@@ -129,13 +138,11 @@ const globalStyles = StyleSheet.create({
   },
   itemSelect: {
     paddingVertical: 40,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     marginVertical: 8,
-    marginHorizontal: 16,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    backgroundColor: "#CFBFA0",
+    marginHorizontal: 10,
+    borderRadius: 30,
+    backgroundColor: colors.backgroundSec,
   },
   globalPadding: {
     flex: 1,
@@ -151,6 +158,25 @@ const globalStyles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 15,
     gap: 15,
+  },
+  paginationContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  paginationDot: {
+    margin: 1.5,
+    fontSize: 55,
+    color: colors.text,
+  },
+  activeDot: {
+    color: colors.approved,
+  },
+  shadow: {
+    shadowColor: "#FFF",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 3,
   },
 });
 
