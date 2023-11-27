@@ -4,7 +4,6 @@ import { Text, ScrollView, TouchableOpacity, View } from "react-native";
 
 import { ImageView } from "../../components/ImageView";
 import { Description } from "../../components/SelectServiceDescription";
-import { Footer } from "../../components/Footer";
 import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
 
 import globalStyles from "../../styles/globalStyles";

@@ -6,9 +6,10 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from "react-native";
 import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
-import globalStyles from "../../styles/globalStyles";
+import globalStyles, { colors } from "../../styles/globalStyles";
 
 type Props = StackScreenProps<ClientNavigationStackParamList, "SelectHour">;
 
@@ -27,7 +28,6 @@ const availableHours = [
   { id: 12, time: "20:30" },
   { id: 13, time: "21:30" },
   { id: 14, time: "13:15" },
-  // Agrega más horas según sea necesario
 ];
 
 const SelectHour = ({ route, navigation }: Props) => {
@@ -45,7 +45,7 @@ const SelectHour = ({ route, navigation }: Props) => {
           textAlign: "center",
           fontSize: 20,
           marginVertical: 20,
-          color: "#141115",
+          color: colors.text,
           fontWeight: "500",
         }}
       >
@@ -53,7 +53,7 @@ const SelectHour = ({ route, navigation }: Props) => {
         <Text
           style={{
             fontWeight: "bold",
-            color: "#4C2B36",
+            color: colors.text,
           }}
         >
           {date.day}/{date.month}
@@ -66,6 +66,7 @@ const SelectHour = ({ route, navigation }: Props) => {
             display: "flex",
             flexDirection: "row",
             alignSelf: "center",
+            justifyContent: "flex-start",
             flexWrap: "wrap",
             maxHeight: 450,
             overflow: "scroll",
@@ -79,25 +80,38 @@ const SelectHour = ({ route, navigation }: Props) => {
               ]}
               onPress={() => handleHourSelection(hour.time.toString())}
             >
-              <Text>{hour.time}</Text>
+              <Text
+                style={{
+                  color: colors.text,
+                  fontSize: 16,
+                  fontWeight: "500",
+                  textAlign: "center",
+                }}
+              >
+                {hour.time}
+              </Text>
             </TouchableOpacity>
           ))}
         </View>
       </View>
       <TouchableOpacity
-        onPress={() =>
-          navigation.navigate("SendInfoForm", {
-            hour: selectedHour!,
-            date,
-            selectedClient,
-            service,
-          })
-        }
+        onPress={() => {
+          if (selectedHour)
+            navigation.navigate("SendInfoForm", {
+              hour: selectedHour!,
+              date,
+              selectedClient,
+              service,
+            });
+          else Alert.alert("Error", "You need to select an hour");
+        }}
         style={{
           ...globalStyles.button,
           alignSelf: "flex-end",
           marginRight: 30,
           marginTop: 20,
+          backgroundColor: selectedHour ? colors.approved : "gray",
+          opacity: selectedHour ? 1 : 0.6,
         }}
       >
         <Text style={globalStyles.buttonText}>Next</Text>
@@ -116,17 +130,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 16,
+    color: colors.text,
   },
   hourItem: {
     paddingVertical: 15,
-    paddingHorizontal: 20,
     marginVertical: 8,
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 8,
-    marginHorizontal: 15,
+    marginHorizontal: 8,
+    width: 90,
   },
   selectedHour: {
-    backgroundColor: "#C6B38E",
+    backgroundColor: colors.approved,
   },
 });

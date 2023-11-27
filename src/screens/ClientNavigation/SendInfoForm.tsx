@@ -7,7 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import globalStyles from "../../styles/globalStyles";
+import globalStyles, { colors } from "../../styles/globalStyles";
 import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
 import { StackScreenProps } from "@react-navigation/stack";
 
@@ -20,20 +20,11 @@ const SendInfoForm = ({ route, navigation }: Props) => {
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const handleFormSubmit = () => {
-    // Validar que se haya ingresado nombre y número de teléfono
     if (!name || !phoneNumber) {
-      Alert.alert("Error", "Por favor, complete todos los campos.");
+      Alert.alert("Error", "Please complete al fields");
       return;
     }
-
-    // Aquí puedes enviar el mensaje con la información del turno
-    const message = `Hola ${name}, tu turno está confirmado para el día X a las Y. Gracias por elegir nuestros servicios.`;
-
-    // Puedes agregar aquí la lógica para enviar el mensaje
-    // Puedes usar servicios como Twilio, Firebase Cloud Messaging, etc.
-
-    // Mostrar un mensaje de éxito
-    Alert.alert("Éxito", "Mensaje enviado correctamente.");
+    Alert.alert("Success", "Appointment Sent Correctly");
   };
 
   return (
@@ -61,6 +52,7 @@ const SendInfoForm = ({ route, navigation }: Props) => {
             placeholder="Your name..."
             value={name}
             onChangeText={(text) => setName(text)}
+            placeholderTextColor={colors.text}
           />
         </View>
 
@@ -72,6 +64,7 @@ const SendInfoForm = ({ route, navigation }: Props) => {
             value={phoneNumber}
             onChangeText={(text) => setPhoneNumber(text)}
             keyboardType="phone-pad"
+            placeholderTextColor={colors.text}
           />
         </View>
 
@@ -95,20 +88,22 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
     marginBottom: 16,
+    color: colors.text
   },
   formGroup: {
     marginBottom: 20,
     width: "100%",
   },
   label: {
-    fontSize: 16,
+    fontSize: 18,
     marginBottom: 8,
+    color: colors.text
   },
   input: {
-    height: 40,
+    height: 45,
     borderColor: "gray",
     borderWidth: 1,
     borderRadius: 8,

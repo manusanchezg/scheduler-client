@@ -15,6 +15,7 @@ export const colors = {
 
 const globalStyles = StyleSheet.create({
   title: {
+    fontFamily: "vietnam-pro-bold",
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
@@ -22,7 +23,7 @@ const globalStyles = StyleSheet.create({
     color: colors.text
   },
   button: {
-    backgroundColor: "#EAE8FF",
+    backgroundColor: colors.approved,
     paddingHorizontal: 10,
     paddingVertical: 20,
     margin: 10,
@@ -30,9 +31,10 @@ const globalStyles = StyleSheet.create({
     width: 150,
   },
   buttonText: {
-    color: "#141115",
-    fontSize: 16,
+    color: colors.text,
+    fontSize: 20,
     textAlign: "center",
+    fontWeight: "bold"
   },
   background: {
     backgroundColor: "white",

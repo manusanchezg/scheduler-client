@@ -10,31 +10,17 @@ type Props = StackScreenProps<ClientNavigationStackParamList, "SelectDate">;
 const SelectDate = ({ route, navigation }: Props) => {
   const { service, selectedClient } = route.params;
 
-  const vacation = { key: "vacation", color: "red", selectedDotColor: "blue" };
-  const massage = { key: "massage", color: "blue", selectedDotColor: "blue" };
-  const workout = { key: "workout", color: "green" };
-
-
   const currentDate = new Date();
 
-  const markedDates = {
-    "2023-11-16": {
-      dots: [vacation, massage, workout],
-      marked: true,
-    },
-    "2023-11-20": { selected: true, marked: true },
-    "2023-11-21": {
-      dots: [vacation, massage],
-      marked: true,
-    },
-    "2023-11-27": { selected: true, marked: true },
-    "2023-11-25": {
-      dots: [vacation, workout],
-      marked: true,
-    },
-    "2023-11-30": { selected: true, marked: true },
+  let markedDates = {
+    "2023-11-16": { marked: true },
+    "2023-11-20": { marked: true },
+    "2023-11-21": { marked: true },
+    "2023-11-27": { marked: true },
+    "2023-11-25": { marked: true },
+    "2023-11-30": { marked: true },
     "2023-11-17": { marked: true },
-    "2023-11-18": { marked: true, dotColor: "red", activeOpacity: 0 },
+    "2023-11-18": { marked: true, activeOpacity: 0 },
     "2023-11-19": { disabled: true, disableTouchEvent: true },
     "2023-11-28": { disabled: true, disableTouchEvent: true },
   };
@@ -56,27 +42,36 @@ const SelectDate = ({ route, navigation }: Props) => {
         // avoid that people can get an appointment before today
         minDate={currentDate.toISOString().split("T")[0]}
         onDayPress={(date) => {
-          navigation.navigate("SelectHour", {date, selectedClient, service});
+          navigation.navigate("SelectHour", { date, selectedClient, service });
+          markedDates = { ...markedDates, [date.dateString]: { marked: true } };
         }}
         markingType={"multi-dot"}
         // esto va a ser un kilombo
         markedDates={markedDates}
+        style={{
+          backgroundColor: colors.backgroundSec,
+          borderRadius: 15,
+          overflow: "hidden",
+          paddingVertical: 10,
+        }}
         theme={{
-          agendaDayNumColor: "#141115",
-          agendaKnobColor: "#4C2B36",
-          arrowColor: "#4C2B36",
-          monthTextColor: "#4C2B36",
+          calendarBackground: colors.backgroundSec,
+          agendaDayNumColor: colors.text,
+          arrowColor: colors.text,
+          monthTextColor: colors.text,
           textDayFontFamily: "",
           textMonthFontWeight: "bold",
           textMonthFontSize: 22,
-          dotColor: "#7C70FF",
-          todayTextColor: "#7C70FF",
+          todayTextColor: colors.pink,
           textDayFontWeight: "500",
-          textInactiveColor: "#BCB0BF",
+          textDayFontSize: 22,
+          textInactiveColor: colors.background,
           selectedDayTextColor: "#4C2B36",
           selectedDayBackgroundColor: "#C6B38E",
-          textDayFontSize: 18,
-          weekVerticalMargin: 15,
+          weekVerticalMargin: 20,
+          arrowHeight: 30,
+          textDayHeaderFontSize: 15,
+          textDayHeaderFontWeight: "500",
         }}
       />
     </View>
