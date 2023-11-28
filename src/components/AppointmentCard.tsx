@@ -5,15 +5,17 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { Appointment } from "../interfaces/appointmentInterface";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../navigation/CompanyAppointmentStack";
+import { CompanyAppointmentStackParamList } from "../navigation/CompanyAppointmentStack";
 import { statusColor } from "../helpers/statusColor";
+import MyText from "./MyText";
 
 interface Props {
   item: Appointment;
 }
 
 export const AppointmentCard = ({ item }: Props) => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation =
+    useNavigation<StackNavigationProp<CompanyAppointmentStackParamList>>();
 
   return (
     <TouchableOpacity
@@ -23,9 +25,11 @@ export const AppointmentCard = ({ item }: Props) => {
       }}
       onPress={() => navigation.navigate("ViewDetailAppointment", { item })}
     >
-      <Text style={globalStyles.descriptionText}>
-        {item.clientName} {item.date}
-      </Text>
+      <MyText fontWeight="500Medium">
+        <Text style={globalStyles.descriptionText}>
+          {item.clientName} {item.date}
+        </Text>
+      </MyText>
       <View
         style={{
           position: "absolute",
@@ -35,10 +39,19 @@ export const AppointmentCard = ({ item }: Props) => {
           gap: 10,
         }}
       >
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate("ManageAppointmentStatus", {
+              status: item.status,
+            })
+          }
+        >
           <Icon name="edit" size={35} color="#141115" />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+        //TODO deleteService
+        // onPress={()=> deleteServie()}
+        >
           <Icon name="times" size={35} color="#AA0000" />
         </TouchableOpacity>
       </View>

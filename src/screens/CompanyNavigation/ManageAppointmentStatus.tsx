@@ -5,9 +5,13 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
 import globalStyles, { colors } from "../../styles/globalStyles";
 import { ServiceStatus } from "../../enums/serviceStatus";
+import MyText from "../../components/MyText";
 
 interface Props
-  extends StackScreenProps<CompanyAppointmentStackParamList, "ManageAppointmentStatus"> {}
+  extends StackScreenProps<
+    CompanyAppointmentStackParamList,
+    "ManageAppointmentStatus"
+  > {}
 
 const ManageAppointmentStatus = ({ navigation, route }: Props) => {
   const { status } = route.params;
@@ -52,7 +56,7 @@ const ManageAppointmentStatus = ({ navigation, route }: Props) => {
     <View style={globalStyles.globalPadding}>
       <View>
         <TouchableOpacity onPress={() => navigation.popToTop()}>
-          <Icon name="arrow-back-outline" size={40} />
+          <Icon name="arrow-back-outline" size={40} color={colors.text} />
         </TouchableOpacity>
       </View>
       <View style={{ alignItems: "center", marginTop: 30 }}>
@@ -63,7 +67,10 @@ const ManageAppointmentStatus = ({ navigation, route }: Props) => {
             onPress={() => {}}
           >
             <Icon name={button.icon} size={40} />
-            <Text style={{fontSize: 18, fontWeight: "bold"}}>{button.text}</Text>
+            <View style={{ flex: 1 }} />
+            <Text style={{ fontSize: 19, fontWeight: "bold" }}>
+              <MyText fontWeight="500Medium">{button.text}</MyText>
+            </Text>
           </TouchableOpacity>
         ))}
       </View>

@@ -6,13 +6,14 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import globalStyles from "../styles/globalStyles";
+import globalStyles, { colors } from "../styles/globalStyles";
 import { Service } from "../types/Service";
+import MyText from "./MyText";
 
 interface Props {
-    item: Service,
-    handleService: () => void,
-    buttonName: string,
+  item: Service;
+  handleService: () => void;
+  buttonName: string;
 }
 
 const Form = ({ item, handleService, buttonName }: Props) => {
@@ -26,34 +27,47 @@ const Form = ({ item, handleService, buttonName }: Props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Service Name:</Text>
+      <Text style={styles.label}>
+        <MyText fontWeight="600SemiBold">Service Name:</MyText>
+      </Text>
       <TextInput
         style={styles.input}
         placeholder="Enter service name"
         value={serviceName}
         onChangeText={(text) => setService({ ...service, serviceName: text })}
+        placeholderTextColor={colors.text}
       />
 
-      <Text style={styles.label}>Duration:</Text>
+      <Text style={styles.label}>
+        <MyText fontWeight="600SemiBold">Duration:</MyText>
+      </Text>
       <TextInput
         style={styles.input}
         placeholder="Enter duration"
         value={duration.toString()}
-        onChangeText={(text) => setService({ ...service, duration: Number(text) })}
+        onChangeText={(text) =>
+          setService({ ...service, duration: Number(text) })
+        }
         keyboardType="decimal-pad"
+        placeholderTextColor={colors.text}
       />
 
-      <Text style={styles.label}>Price:</Text>
+      <Text style={styles.label}>
+        <MyText fontWeight="600SemiBold">Price:</MyText>
+      </Text>
       <TextInput
         style={styles.input}
         placeholder="Enter price"
         value={price.toString()}
         onChangeText={(text) => setService({ ...service, price: Number(text) })}
         keyboardType="numeric"
+        placeholderTextColor={colors.text}
       />
 
       <TouchableOpacity style={styles.addButton} onPress={handleService}>
-        <Text style={styles.buttonText}>{buttonName}</Text>
+        <Text style={styles.buttonText}>
+          <MyText fontWeight="700Bold">{buttonName}</MyText>
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -65,27 +79,32 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   label: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
     marginBottom: 8,
+    color: colors.text,
   },
   input: {
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 8,
-    padding: 10,
-    marginBottom: 16,
+    paddingHorizontal: 10,
+    marginBottom: 20,
+    paddingVertical: 18,
+    color: colors.text,
+    fontSize: 16,
   },
   addButton: {
-    backgroundColor: "#3498db",
-    padding: 15,
+    backgroundColor: colors.approved,
+    paddingHorizontal: 15,
+    paddingVertical: 20,
     borderRadius: 8,
     alignItems: "center",
     marginTop: 25,
   },
   buttonText: {
     color: "white",
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: "bold",
   },
 });

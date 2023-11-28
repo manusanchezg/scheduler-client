@@ -1,14 +1,18 @@
 import React from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { Service } from "../../types/Service";
-import globalStyles from "../../styles/globalStyles";
+import globalStyles, { colors } from "../../styles/globalStyles";
 import { StackScreenProps } from "@react-navigation/stack";
 import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
 import Icon from "react-native-vector-icons/Ionicons";
 import { ServiceDetailCard } from "../../components/ServiceDetailCard";
+import MyText from "../../components/MyText";
 
 interface Props
-  extends StackScreenProps<CompanyAppointmentStackParamList, "ChooseEditService"> {}
+  extends StackScreenProps<
+    CompanyAppointmentStackParamList,
+    "ChooseEditService"
+  > {}
 
 const ChooseServiceToEdit = ({ navigation }: Props) => {
   const services: Service[] = [
@@ -66,10 +70,12 @@ const ChooseServiceToEdit = ({ navigation }: Props) => {
     <View style={globalStyles.globalPadding}>
       <View>
         <TouchableOpacity onPress={() => navigation.pop()}>
-          <Icon name="arrow-back-outline" size={40} />
+          <Icon name="arrow-back-outline" size={40} color={colors.text} />
         </TouchableOpacity>
       </View>
-      <Text style={globalStyles.title}>Available Services</Text>
+      <Text style={globalStyles.title}>
+        <MyText fontWeight="600SemiBold">Available Services</MyText>
+      </Text>
       <FlatList
         data={services}
         renderItem={({ item }) => <ServiceDetailCard item={item} />}

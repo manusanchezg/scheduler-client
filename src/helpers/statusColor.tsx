@@ -1,14 +1,16 @@
+import { colors } from "../styles/globalStyles"
+
 export const statusColor = (status: string) => {
     switch (status) {
       case "approved":
-        return "#C1EDC5"
+        return colors.approved
       case "pending":
-        return "#FFE4B5"
+        return colors.pending
       case "canceled":
-        return "#D3D3D3"
+        return colors.canceled
       case "postponed":
-        return "#ADD8E6"
+        return colors.postponed
       default:
-        return "#CFBFA0"
+        return colors.backgroundSec
     }
   }

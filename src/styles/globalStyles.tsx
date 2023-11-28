@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 
 export const colors = {
   approved: "#34BB8B",
-  pending: "#34BB8B",
-  canceled: "#34BB8B",
-  postponed: "#ADD8E6",
+  pending: "#F7BF5E",
+  canceled: "#7A7A79",
+  postponed: "#76B8CF",
   default: "#CFBFA0",
   completed: "#EAE8FF",
   text: "#F2EFE6",
@@ -15,7 +15,6 @@ export const colors = {
 
 const globalStyles = StyleSheet.create({
   title: {
-    fontFamily: "vietnam-pro-bold",
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
@@ -159,7 +158,6 @@ const globalStyles = StyleSheet.create({
     flexDirection: "row",
     paddingVertical: 15,
     paddingHorizontal: 15,
-    gap: 15,
   },
   paginationContainer: {
     flexDirection: "row",

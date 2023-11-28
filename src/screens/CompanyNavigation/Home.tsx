@@ -1,16 +1,17 @@
 import React from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
-import globalStyles from "../../styles/globalStyles";
+import globalStyles, { colors } from "../../styles/globalStyles";
 import { AppointmentCard } from "../../components/AppointmentCard";
 import { Appointment } from "../../interfaces/appointmentInterface";
 import { ServiceStatus } from "../../enums/serviceStatus";
 import { StackScreenProps } from "@react-navigation/stack";
 import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
+import MyText from "../../components/MyText";
 
 interface Props
   extends StackScreenProps<CompanyAppointmentStackParamList, "HomeScreen"> {}
 
-const Home = ({navigation}: Props) => {
+const Home = ({ navigation }: Props) => {
   const upcomingAppointments: Appointment[] = [
     // pending, approved, canceled, postponed
     {
@@ -66,7 +67,9 @@ const Home = ({navigation}: Props) => {
   return (
     <>
       <View style={{ maxHeight: "80%" }}>
-        <Text style={globalStyles.title}>Current Appointments</Text>
+        <Text style={globalStyles.title}>
+          <MyText fontWeight="600SemiBold">Current Appointments</MyText>
+        </Text>
         <FlatList
           data={upcomingAppointments}
           keyExtractor={(item) => item.id.toString()}
@@ -85,42 +88,36 @@ const Home = ({navigation}: Props) => {
         <TouchableOpacity
           style={{
             ...globalStyles.button,
-            borderWidth: 1,
-            borderColor: "#BCB0BF",
-            backgroundColor: "#C1EDC5",
+            backgroundColor: colors.approved,
           }}
           onPress={() => navigation.navigate("AddService")}
         >
           <Text
             style={{
               ...globalStyles.buttonText,
-              fontSize: 18,
-              color: "#6B8E23",
-              fontWeight: "bold",
+              fontSize: 20,
+              color: colors.text,
             }}
           >
-            Add Service
+            <MyText fontWeight="600SemiBold">Add Service</MyText>
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={{
             ...globalStyles.button,
-            borderWidth: 1,
-            borderColor: "#BCB0BF",
-            backgroundColor: "#C4E4F8",
+            backgroundColor: colors.postponed,
           }}
           onPress={() => navigation.navigate("ChooseEditService")}
         >
           <Text
             style={{
               ...globalStyles.buttonText,
-              fontSize: 18,
-              color: "#6E8B9E",
-              fontWeight: "bold",
+              fontSize: 20,
+              color: colors.text,
             }}
           >
-            Edit Service
+            <MyText fontWeight="600SemiBold">Edit Service</MyText>
           </Text>
         </TouchableOpacity>
       </View>

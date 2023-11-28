@@ -9,6 +9,7 @@ import AddService from "../screens/CompanyNavigation/AddService";
 import ChooseServiceToEdit from "../screens/CompanyNavigation/ChooseServiceToEdit";
 import { Service } from "../types/Service";
 import EditService from "../screens/CompanyNavigation/EditService";
+import { colors } from "../styles/globalStyles";
 
 export type CompanyAppointmentStackParamList = {
   HomeScreen: undefined;
@@ -28,7 +29,7 @@ const CompanyAppointmentStack = () => {
         headerShadowVisible: false,
         headerLargeTitleShadowVisible: false,
         contentStyle: {
-          backgroundColor: "white",
+          backgroundColor: colors.background,
         },
         headerShown: false,
       }}

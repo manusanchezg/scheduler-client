@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
+import { colors } from "../../styles/globalStyles";
 
 const AddService = () => {
   const navigation = useNavigation<StackNavigationProp<CompanyAppointmentStackParamList>>();
@@ -25,7 +26,7 @@ const AddService = () => {
     <>
       <View style={{ margin: 15 }}>
         <TouchableOpacity onPress={() => navigation.popToTop()}>
-          <Icon name="arrow-back-outline" size={40} />
+          <Icon name="arrow-back-outline" size={40} color={colors.text} />
         </TouchableOpacity>
       </View>
       <Form
