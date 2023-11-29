@@ -7,9 +7,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import globalStyles, { colors } from "../../styles/globalStyles";
-import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
 import { StackScreenProps } from "@react-navigation/stack";
+
+import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
+
+import globalStyles, { colors } from "../../styles/globalStyles";
 
 type Props = StackScreenProps<ClientNavigationStackParamList, "SendInfoForm">;
 

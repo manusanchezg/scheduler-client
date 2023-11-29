@@ -1,10 +1,12 @@
 import React from "react";
+import { StackScreenProps } from "@react-navigation/stack";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
+
 import { Service } from "../../types/Service";
 import globalStyles, { colors } from "../../styles/globalStyles";
-import { StackScreenProps } from "@react-navigation/stack";
+
 import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
-import Icon from "react-native-vector-icons/Ionicons";
 import { ServiceDetailCard } from "../../components/ServiceDetailCard";
 import MyText from "../../components/MyText";
 
@@ -67,7 +69,13 @@ const ChooseServiceToEdit = ({ navigation }: Props) => {
   ];
 
   return (
-    <View style={globalStyles.globalPadding}>
+    <View
+      style={{
+        ...globalStyles.globalPadding,
+        flex: 1,
+        backgroundColor: colors.background,
+      }}
+    >
       <View>
         <TouchableOpacity onPress={() => navigation.pop()}>
           <Icon name="arrow-back-outline" size={40} color={colors.text} />

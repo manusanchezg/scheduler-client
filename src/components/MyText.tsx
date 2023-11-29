@@ -1,3 +1,4 @@
+import { useCallback, useEffect } from "react";
 import { Text } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import {
@@ -8,7 +9,6 @@ import {
   BeVietnam_700Bold,
   BeVietnam_800ExtraBold,
 } from "@expo-google-fonts/be-vietnam";
-import { useCallback, useEffect } from "react";
 
 interface Props {
   children: JSX.Element | JSX.Element[] | string | string[] | (string| JSX.Element)[];

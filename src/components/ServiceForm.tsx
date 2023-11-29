@@ -6,8 +6,10 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import globalStyles, { colors } from "../styles/globalStyles";
+
 import { Service } from "../types/Service";
+import globalStyles, { colors } from "../styles/globalStyles";
+
 import MyText from "./MyText";
 
 interface Props {
@@ -16,7 +18,7 @@ interface Props {
   buttonName: string;
 }
 
-const Form = ({ item, handleService, buttonName }: Props) => {
+const ServiceForm = ({ item, handleService, buttonName }: Props) => {
   const [service, setService] = useState({
     serviceName: item.serviceName,
     price: item.price,
@@ -109,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Form;
+export default ServiceForm;

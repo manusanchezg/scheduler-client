@@ -7,18 +7,14 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
+
 import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
+
 import globalStyles, { colors } from "../../styles/globalStyles";
 
 interface Client {
   id: number;
   name: string;
-}
-
-interface Service {
-  id: number;
-  name: string;
-  price: number;
 }
 
 const clients: Client[] = [

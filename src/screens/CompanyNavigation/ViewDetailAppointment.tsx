@@ -1,13 +1,15 @@
-import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
+import { StackScreenProps } from "@react-navigation/stack";
 import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Ionicons";
-import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
+
 import globalStyles, { colors } from "../../styles/globalStyles";
-import { statusColor } from "../../helpers/statusColor";
+
+import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
+import { statusColor, capitalizeFirstLetter } from "../../helpers";
+
 import MyText from "../../components/MyText";
-import { capitalizeFirstLetter } from "../../helpers/capitalizeFirstLetter";
 
 interface Props
   extends StackScreenProps<

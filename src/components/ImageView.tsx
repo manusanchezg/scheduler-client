@@ -9,8 +9,9 @@ import {
   GestureResponderEvent,
   Dimensions,
 } from "react-native";
-import globalStyles from "../styles/globalStyles";
 import Carousel from "react-native-snap-carousel";
+
+import globalStyles from "../styles/globalStyles";
 
 const { width: windowWidth } = Dimensions.get("window");
 

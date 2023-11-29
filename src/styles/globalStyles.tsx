@@ -26,7 +26,7 @@ const globalStyles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 20,
     margin: 10,
-    borderRadius: 5,
+    borderRadius: 15,
     width: 150,
   },
   buttonText: {

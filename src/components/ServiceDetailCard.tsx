@@ -1,18 +1,20 @@
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+
+import { EditServiceStackParamList } from "../navigation/EditServiceStack";
+
 import globalStyles, { colors } from "../styles/globalStyles";
 import { Service } from "../types/Service";
-import { decimalToHoursMinutes } from "../helpers/changeDecimalToHour";
-import { useNavigation } from "@react-navigation/native";
-import { RootStackParamList } from "../navigation/EditServiceStack";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { decimalToHoursMinutes } from "../helpers";
 
 interface Props {
   item: Service;
 }
 
 export const ServiceDetailCard = ({ item }: Props) => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<StackNavigationProp<EditServiceStackParamList>>();
 
   return (
     <TouchableOpacity

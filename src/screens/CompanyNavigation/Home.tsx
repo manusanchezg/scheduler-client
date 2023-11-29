@@ -1,12 +1,15 @@
 import React from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import { StackScreenProps } from "@react-navigation/stack";
+
 import globalStyles, { colors } from "../../styles/globalStyles";
+
 import { AppointmentCard } from "../../components/AppointmentCard";
 import { Appointment } from "../../interfaces/appointmentInterface";
-import { ServiceStatus } from "../../enums/serviceStatus";
-import { StackScreenProps } from "@react-navigation/stack";
 import { CompanyAppointmentStackParamList } from "../../navigation/CompanyAppointmentStack";
 import MyText from "../../components/MyText";
+
+import { ServiceStatus } from "../../enums/serviceStatus";
 
 interface Props
   extends StackScreenProps<CompanyAppointmentStackParamList, "HomeScreen"> {}

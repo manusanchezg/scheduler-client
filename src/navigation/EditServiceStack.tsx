@@ -1,8 +1,10 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { Service } from "../types/Service";
+
 import ChooseServiceToEdit from "../screens/CompanyNavigation/ChooseServiceToEdit";
 import EditService from "../screens/CompanyNavigation/EditService";
-import { Service } from "../types/Service";
 
 export type EditServiceStackParamList = {
   ChooseEditService: undefined;

@@ -1,13 +1,15 @@
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import globalStyles from "../styles/globalStyles";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Appointment } from "../interfaces/appointmentInterface";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+
 import { CompanyAppointmentStackParamList } from "../navigation/CompanyAppointmentStack";
-import { statusColor } from "../helpers/statusColor";
 import MyText from "./MyText";
+
+import globalStyles from "../styles/globalStyles";
+import { Appointment } from "../interfaces/appointmentInterface";
+import { statusColor } from "../helpers/statusColor";
 
 interface Props {
   item: Appointment;

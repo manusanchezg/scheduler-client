@@ -5,10 +5,11 @@ import {
   View,
   StyleSheet,
   TouchableOpacity,
-  ScrollView,
   Alert,
 } from "react-native";
+
 import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
+
 import globalStyles, { colors } from "../../styles/globalStyles";
 
 type Props = StackScreenProps<ClientNavigationStackParamList, "SelectHour">;
