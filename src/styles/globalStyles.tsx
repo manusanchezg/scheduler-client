@@ -88,7 +88,7 @@ const globalStyles = StyleSheet.create({
     elevation: 3,
   },
   descriptionText: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: "500",
     color: colors.text,
   },

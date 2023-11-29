@@ -5,7 +5,7 @@ import CompanyNavigationDrawer from "./src/navigation/CompanyNavigationDrawer";
 import { useState } from "react";
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <NavigationContainer>
       {isLoggedIn ? <CompanyNavigationDrawer /> : <ClientNavigator />}

@@ -7,8 +7,10 @@ import { Description } from "../../components/SelectServiceDescription";
 import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
 
 import globalStyles from "../../styles/globalStyles";
+import MyText from "../../components/MyText";
 
-interface Props extends StackScreenProps<ClientNavigationStackParamList, "SelectService"> {}
+interface Props
+  extends StackScreenProps<ClientNavigationStackParamList, "SelectService"> {}
 
 const SelectService = ({ navigation }: Props) => {
   const services = [
@@ -26,7 +28,9 @@ const SelectService = ({ navigation }: Props) => {
       <ImageView />
       <Description />
       <View style={globalStyles.mainContainer}>
-        <Text style={globalStyles.title}>Select Service</Text>
+        <Text style={globalStyles.title}>
+          <MyText>Select Service</MyText>
+        </Text>
 
         <ScrollView style={globalStyles.scrollContainer}>
           {services.map((service) => (

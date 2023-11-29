@@ -11,6 +11,7 @@ import {
 import { ClientNavigationStackParamList } from "../../navigation/ClientNavigation";
 
 import globalStyles, { colors } from "../../styles/globalStyles";
+import MyText from "../../components/MyText";
 
 interface Client {
   id: number;
@@ -46,7 +47,7 @@ const SelectClient = ({ navigation, route }: Props) => {
           color: colors.text,
         }}
       >
-        {item.name}
+        <MyText>{item.name}</MyText>
       </Text>
     </TouchableOpacity>
   );
