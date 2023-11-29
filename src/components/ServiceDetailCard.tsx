@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 import { EditServiceStackParamList } from "../navigation/EditServiceStack";
+import MyText from "./MyText";
 
 import globalStyles, { colors } from "../styles/globalStyles";
 import { Service } from "../types/Service";
@@ -14,7 +15,8 @@ interface Props {
 }
 
 export const ServiceDetailCard = ({ item }: Props) => {
-  const navigation = useNavigation<StackNavigationProp<EditServiceStackParamList>>();
+  const navigation =
+    useNavigation<StackNavigationProp<EditServiceStackParamList>>();
 
   return (
     <TouchableOpacity
@@ -34,7 +36,7 @@ export const ServiceDetailCard = ({ item }: Props) => {
           marginBottom: 15,
         }}
       >
-        {item.serviceName}
+        <MyText>{item.serviceName}</MyText>
       </Text>
       <View
         style={{
@@ -42,10 +44,12 @@ export const ServiceDetailCard = ({ item }: Props) => {
           justifyContent: "space-around",
         }}
       >
-        <Text style={{ fontSize: 16 }}>
-          Duration: {decimalToHoursMinutes(item.duration)}
+        <Text style={{ fontSize: 16, color: colors.text }}>
+          <MyText>Duration: {decimalToHoursMinutes(item.duration)}</MyText>
         </Text>
-        <Text style={{ fontSize: 16 }}>Price: ${item.price}</Text>
+        <Text style={{ fontSize: 16, color: colors.text }}>
+          <MyText>Price: ${item.price.toString()}</MyText>
+        </Text>
       </View>
     </TouchableOpacity>
   );

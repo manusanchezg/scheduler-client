@@ -16,7 +16,7 @@ interface Props
     "ChooseEditService"
   > {}
 
-const ChooseServiceToEdit = ({ navigation }: Props) => {
+const ChooseServiceToEdit = ({ navigation, route }: Props) => {
   const services: Service[] = [
     {
       id: 1,
@@ -77,10 +77,11 @@ const ChooseServiceToEdit = ({ navigation }: Props) => {
       }}
     >
       <View>
-        <TouchableOpacity onPress={() => navigation.pop()}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="arrow-back-outline" size={40} color={colors.text} />
         </TouchableOpacity>
       </View>
+
       <Text style={globalStyles.title}>
         <MyText fontWeight="600SemiBold">Available Services</MyText>
       </Text>

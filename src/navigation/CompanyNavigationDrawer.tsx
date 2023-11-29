@@ -35,10 +35,26 @@ function CompanyNavigationDrawer() {
         },
       }}
     >
-      <Drawer.Screen name="Home" component={CompanyAppointmentStack} />
-      <Drawer.Screen name="AddService" component={AddService} />
-      <Drawer.Screen name="EditServiceStack" component={EditServiceStack} />
-      <Drawer.Screen name="AddSchedule" component={ClientNavigator} />
+      <Drawer.Screen
+        name="Home"
+        options={{ title: "Home Page" }}
+        component={CompanyAppointmentStack}
+      />
+      <Drawer.Screen
+        name="AddService"
+        options={{ title: "Add Service" }}
+        component={AddService}
+      />
+      <Drawer.Screen
+        name="EditServiceStack"
+        options={{ title: "Edit Service" }}
+        component={EditServiceStack}
+      />
+      <Drawer.Screen
+        name="AddSchedule"
+        options={{ title: "Add Schedule" }}
+        component={ClientNavigator}
+      />
       <Drawer.Screen name="Appointments" component={Appointments} />
     </Drawer.Navigator>
   );
